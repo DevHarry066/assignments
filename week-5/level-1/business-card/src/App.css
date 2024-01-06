@@ -1,0 +1,53 @@
+.app-title {
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem;
+  padding: 0 1rem 1rem 1rem;
+  color: #2462A0;
+}
+
+.container-main {
+  height: 400px;
+  width: 500px;
+  background-color: rgba(248,249,250,255);
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 2%;
+}
+
+.name {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.description {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.interest-heading {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 0.8rem;
+}
+
+.interest-list {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.link-button {
+  color:white;
+  background-color: rgba(0,123,255,255);
+  border-radius: 10%;
+  font-style: none;
+  font-size: 1.3rem;
+  border-radius: 1rem;
+  margin: 2rem 2rem 0 0;
+  padding: 1rem 1rem;
+  border: 0px;
+}
