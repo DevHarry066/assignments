@@ -1,26 +1,12 @@
 import BusinessCard from './components/BusinessCard';
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 function App() {
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
-  const [interests, setInterests] = useState([]);
-  const [links, setLinks] = useState([]);
-
-  useEffect(() => {
-    setName('Lokeshwar');
-    setDescription('A TA in the 100xDevs Cohort 2.0');
-    const interests = [{
-      name: 'Ionic'
-    }, {
-      name: 'Open Source'
-    }, {
-      name: 'App Dev'
-    }];
-    setInterests(interests);
-
-
-    const links = [{
+  const [data, setData] = useState([{
+    name: 'Lokeshwar',
+    description: 'A TA in the 100xDevs Cohort 2.0',
+    interests: ['Ionic, Open Source, App Dev'],
+    links: [{
       name: 'Instagram',
       url: 'https://www.instagram.com/?hl=en'
     },
@@ -31,14 +17,70 @@ function App() {
     {
       name: 'LinkedIn',
       url: 'https://www.linkedin.com/login'
-    }];
-    setLinks(links);
+    }]
+  }
+  ]);
 
-  }, [])
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    // Handle the form submission and add Data into setData
+    const links = [{
+      name: 'Instagram',
+      url: e.target.instagram.value
+    },
+    {
+      name: 'Twitter',
+      url: e.target.twitter.value
+    },
+    {
+      name: 'LinkedIn',
+      url: e.target.facebook.value
+    }]
+    setData([...data, {
+      name: e.target.name.value,
+      description: e.target.description.value,
+      interests: e.target.interests.value,
+      links: links
+    }
+    ]);
+    e.target.reset();
+  }
 
   return (
     <div className="App">
-      <BusinessCard name={name} description={description} interests={interests} links={links} />
+      <div className='app-title'>Business Card</div>
+
+      {/*User Input for new Card*/}
+      <form onSubmit={handleFormSubmit}>
+        <label>Enter your name:</label>
+        <input type='text' name='name' placeholder='Enter your name'></input>
+        <br></br> <br></br>
+        <label>Enter about yourself:</label>
+        <input type='text' name='description' placeholder='Enter about yourself'></input>
+        <br></br> <br></br><br></br>
+        <label>Enter your interests:</label>
+        <input type='text' placeholder='Enter interests' name='interests'></input>
+        <br></br> <br></br>
+        <label>Instagram:</label>
+        <input type='text' name='instagram' placeholder='Instagram profile URL'></input>
+        <br></br> <br></br>
+        <label>Twitter:</label>
+        <input type='text' name='twitter' placeholder='Twitter profile URL'></input>
+        <br></br> <br></br>
+        <label>Facebook:</label>
+        <input type='text' name='facebook' placeholder='Facebook profile URL'></input>
+        <br></br> <br></br>
+        <br></br> <br></br>
+        <button type='submit'>Submit</button>
+      </form>
+
+      {/*Display Card */}
+      <div className='cards'>
+        {data.map(card => (
+          <BusinessCard key={card.name} name={card.name} description={card.description}
+            interests={card.interests} links={card.links} />
+        ))}
+      </div>
     </div>
   );
 }

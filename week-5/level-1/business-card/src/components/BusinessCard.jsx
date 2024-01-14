@@ -3,7 +3,6 @@ import React from 'react'
 function BusinessCard({name, description, interests, links}) {
   return (
     <>
-    <div className='app-title'>Business Card</div>
     <div className='container-main'>
         <div className='name'>
         {name}
@@ -13,13 +12,11 @@ function BusinessCard({name, description, interests, links}) {
     </div>
     <div className='interest'>
         <div className='interest-heading'>Interests</div>
-        {interests.map(interest => (
-            <div className='interest-list'>{interest.name}</div>
-        ))}
+            <div className='interest-list'>{interests}</div>
     </div>
     <div>
         {links.map(link => (
-            <button className='link-button' href={`${link.url}`} target="_blank" rel="noreferrer">{link.name}</button>
+            <button key={link.url} className='link-button' onClick={() => {window.open(`${link.url}.com`)}} target="_blank" rel="noreferrer">{link.name}</button>
         ))}
     </div>
     </div>

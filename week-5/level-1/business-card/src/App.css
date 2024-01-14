@@ -8,10 +8,12 @@
   color: #2462A0;
 }
 
+.cards {
+  display:flex;
+}
 .container-main {
-  height: 400px;
-  width: 500px;
-  background-color: rgba(248,249,250,255);
+  width: 300px;
+  background-color: blue;
   margin: 1rem;
   padding: 1rem;
   border-radius: 2%;
