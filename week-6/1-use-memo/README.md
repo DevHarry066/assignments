@@ -1,8 +1,1 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Use Memo is used if in a component we are doing heavy computation and we do not want to keep doing the heavy computation whenever the component is rendered so we put the heavy computation code into the useMemo and this computation will render only when our props of the component is changed otherwise it will not compute the heavy computation code again and will use old value of its return value.
